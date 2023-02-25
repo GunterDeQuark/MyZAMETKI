@@ -109,13 +109,20 @@ namespace MyZAMETKI
         private void Create_New_Click(object sender, RoutedEventArgs e)
         {
             Create_Note_Name create_Note_Name = new Create_Note_Name();
-
-            if(create_Note_Name.ShowDialog()==true)
+            if (create_Note_Name.ShowDialog() == true)
             {
                 if (create_Note_Name.note_Name != null && File.Exists(PATH_Notes + "\\" + create_Note_Name.note_Name + ".rtf") != true)
                 {
                     MessageBox.Show("Nice");
-                    File.Create(PATH_Notes + "\\" + create_Note_Name.note_Name + ".rtf");
+
+                    using (FileStream fileStream = new FileStream((PATH_Notes + "\\" + create_Note_Name.note_Name + ".rtf"), FileMode.Create))
+                    {
+                        FlowDocument doc = new FlowDocument();
+                        TextRange range = new TextRange(doc.ContentStart, doc.ContentEnd);
+                        range.Save(fileStream, DataFormats.Rtf);
+                    }
+
+                    //File.Create(PATH_Notes + "\\" + create_Note_Name.note_Name + ".rtf");
                     LDN();
 
                 }

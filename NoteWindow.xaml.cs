@@ -28,9 +28,12 @@ namespace MyZAMETKI
 			cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
 			cmbFontSize.ItemsSource = new List<Double>() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
 
-			FileStream fileStream = new FileStream((((Model_Note)(window.lbNotesList.SelectedItem)).PATH).ToString(), FileMode.Open);
-			TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
-			range.Load(fileStream, DataFormats.Rtf);
+			using (FileStream fileStream = new FileStream((((Model_Note)(window.lbNotesList.SelectedItem)).PATH).ToString(), FileMode.Open))
+			{
+				TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
+				range.Load(fileStream, DataFormats.Rtf);
+				
+			}
 
 		}
 
@@ -56,9 +59,11 @@ namespace MyZAMETKI
 			//if (dlg.ShowDialog() == true)
 			//{
 			MainWindow main = this.Owner as MainWindow;
-			FileStream fileStream = new FileStream((((Model_Note)(main.lbNotesList.SelectedItem)).PATH).ToString(), FileMode.Open);
-			TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
-			range.Load(fileStream, DataFormats.Rtf);
+			using (FileStream fileStream = new FileStream((((Model_Note)(main.lbNotesList.SelectedItem)).PATH).ToString(), FileMode.Open))
+			{
+				TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
+				range.Load(fileStream, DataFormats.Rtf);
+			}
 			//}
 		}
 
@@ -93,9 +98,11 @@ namespace MyZAMETKI
 		void SaveData()
         {
 			MainWindow main = this.Owner as MainWindow;
-			FileStream fileStream = new FileStream((((Model_Note)(main.lbNotesList.SelectedItem)).PATH).ToString(), FileMode.Open);
-			TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
-			range.Save(fileStream, DataFormats.Rtf);
+			using (FileStream fileStream = new FileStream((((Model_Note)(main.lbNotesList.SelectedItem)).PATH).ToString(), FileMode.Open))
+			{
+				TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
+				range.Save(fileStream, DataFormats.Rtf);
+			}
 		}
 	}
 }
