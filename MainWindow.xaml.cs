@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,6 +73,13 @@ namespace MyZAMETKI
             //
 
         }
+        void LDN()
+        {
+            _fileIOService_notes = new FileIOService(PATH_Notes);
+            _noteDataList = _fileIOService_notes.LoadDataNotes();
+            lbNotesList.ItemsSource = _noteDataList;
+            notebookList.ItemsSource = _noteDataList;
+        }
 
         private void _todoDataList_ListChanged(object sender, ListChangedEventArgs e)
         {
@@ -98,5 +106,23 @@ namespace MyZAMETKI
 
         }
 
+        private void Create_New_Click(object sender, RoutedEventArgs e)
+        {
+            Create_Note_Name create_Note_Name = new Create_Note_Name();
+
+            if(create_Note_Name.ShowDialog()==true)
+            {
+                if (create_Note_Name.note_Name != null && File.Exists(PATH_Notes + "\\" + create_Note_Name.note_Name + ".rtf") != true)
+                {
+                    MessageBox.Show("Nice");
+                    File.Create(PATH_Notes + "\\" + create_Note_Name.note_Name + ".rtf");
+                    LDN();
+
+                }
+                else
+                    MessageBox.Show("No Nice(");
+
+            }
+        }
     }
 }

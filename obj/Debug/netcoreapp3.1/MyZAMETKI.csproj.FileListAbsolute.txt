@@ -22,3 +22,5 @@ D:\Programm\VS_Project\MyZAMETKI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Programm\VS_Project\MyZAMETKI\obj\Debug\netcoreapp3.1\MyZAMETKI.csproj.CopyComplete
 D:\Programm\VS_Project\MyZAMETKI\obj\Debug\netcoreapp3.1\NoteWindow.g.cs
 D:\Programm\VS_Project\MyZAMETKI\obj\Debug\netcoreapp3.1\NoteWindow.baml
+D:\Programm\VS_Project\MyZAMETKI\obj\Debug\netcoreapp3.1\Create_Note_Name.g.cs
+D:\Programm\VS_Project\MyZAMETKI\obj\Debug\netcoreapp3.1\Create_Note_Name.baml

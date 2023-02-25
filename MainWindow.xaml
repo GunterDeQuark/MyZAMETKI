@@ -96,7 +96,7 @@
                                 </RowDefinition>
                             </Grid.RowDefinitions>
 
-                            <Button Grid.Row="0" Content="Create New"/>
+                            <Button Grid.Row="0" Content="Create New" Click="Create_New_Click"/>
                             
                             <ListBox Name="lbNotesList" 
                                  Grid.Row="1" 

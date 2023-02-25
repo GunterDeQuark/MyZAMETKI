@@ -101,7 +101,7 @@ namespace MyZAMETKI {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MyZAMETKI;V1.0.0.0;component/notewindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MyZAMETKI;component/notewindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\NoteWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
